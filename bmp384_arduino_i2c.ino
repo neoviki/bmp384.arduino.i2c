@@ -11,23 +11,7 @@ BMP384 pressureSensor;
 //IC1
 //BMP384_I2C_ADDRESS_SECONDARY; // 0x76
 
-void setup()
-{
-    Serial.begin(115200);
-    Serial.println("BMP384 Example1 begin!");
 
-
-    pinMode(21, OUTPUT);  
-    
-    for (int i = 0; i < 8; i++) {    
-      digitalWrite(21, HIGH);    
-      delayMicroseconds(3);    
-      digitalWrite(21, LOW);    
-      delayMicroseconds(3);  
-    } 
-    
-    pinMode(21, INPUT);
-}
 
 int init_bmp1()
 {
@@ -69,6 +53,25 @@ int init_bmp2()
     return 0;
 }
 
+void setup()
+{
+    Serial.begin(115200);
+    Serial.println("BMP384 Example1 begin!");
+
+
+    pinMode(21, OUTPUT);  
+    
+    for (int i = 0; i < 8; i++) {    
+      digitalWrite(21, HIGH);    
+      delayMicroseconds(3);    
+      digitalWrite(21, LOW);    
+      delayMicroseconds(3);  
+    } 
+    
+    pinMode(21, INPUT);
+    
+}
+
 void loop()
 {
 
@@ -85,7 +88,10 @@ void loop()
       flag=1;      
     }
 
+
     if(ret == 0) return;
+
+
 
     delay(1000);
 
